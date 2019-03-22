@@ -8,7 +8,7 @@ public class GroupeEtu {
     private String nomGroupe;
     private String nomProprio;
     private Date dateCrea;
-    HashSet<Etudiant> listeEtu = new HashSet();
+    HashSet<Etudiant> listeEtu = new HashSet<Etudiant>();
 
     //Constructeur
     public GroupeEtu(){
@@ -46,6 +46,27 @@ public class GroupeEtu {
 
     public void setListeEtu(HashSet<Etudiant> listeEtu) {
         this.listeEtu = listeEtu;
+    }
+
+    //Méthodes de classe
+    public void ajoutEtu(Etudiant e)
+    {
+        boolean err;
+        err = this.listeEtu.add(e);
+        if(err == false)
+        {
+            System.out.println("L'étudiant est déjà dans le groupe");
+        }
+    }
+
+    public void supprEtu(Etudiant e)
+    {
+        boolean err;
+        err = this.listeEtu.remove(e);
+        if(err != true)
+        {
+            System.out.println("L'étudiant n'était pas dans le groupe");
+        }
     }
 
 
