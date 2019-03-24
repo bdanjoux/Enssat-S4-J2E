@@ -2,13 +2,14 @@ package org.ApLpMpBdKl;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
-public class GroupeEtu {
+public class GroupeEtu implements EtuInterface{
 
     private String nomGroupe;
     private String nomProprio;
     private Date dateCrea;
-    HashSet<Etudiant> listeEtu = new HashSet<Etudiant>();
+    HashSet<EtuInterface> listeEtu = new HashSet<EtuInterface>();
 
     //Constructeur
     public GroupeEtu(){
@@ -18,6 +19,17 @@ public class GroupeEtu {
     //Getters et Setters
     public String getNomGroupe() {
         return nomGroupe;
+    }
+
+    @Override
+    public Set<Id> getId() {
+        HashSet<Id> ret = new HashSet<Id>();
+        int i=0;
+        Iterator<EtuInterface> it = listeEtu.iterator();
+        while (it.hasNext() && i<listeEtu.size()){
+            ret.addAll(it.next().getId());
+        }
+        return ret;
     }
 
     public void setNomGroupe(String nomGroupe) {
@@ -41,11 +53,25 @@ public class GroupeEtu {
     }
 
     public HashSet<Etudiant> getListeEtu() {
-        return listeEtu;
+        HashSet<Etudiant> ret = new HashSet<Etudiant>();
+        Iterator<EtuInterface> it = listeEtu.iterator();
+        while (it.hasNext()){
+            EtuInterface current=it.next();
+            if(current instanceof Etudiant){
+                ret.add((Etudiant) current);
+            }else if(current instanceof GroupeEtu){
+                ret.addAll(((GroupeEtu) current).getListeEtu());
+            }
+        }
+        return ret;
     }
 
     public void setListeEtu(HashSet<Etudiant> listeEtu) {
-        this.listeEtu = listeEtu;
+        this.listeEtu = new HashSet<EtuInterface>();
+        Iterator<Etudiant> it =listeEtu.iterator();
+        while (it.hasNext()){
+            this.listeEtu.add(it.next());
+        }
     }
 
     //Méthodes de classe

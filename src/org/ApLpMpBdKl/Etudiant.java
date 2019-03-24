@@ -2,14 +2,16 @@ package org.ApLpMpBdKl;
 
 import java.net.URL;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 enum SerieBac {S,L,ES}
 enum MentionBac {AssezBien,Bien,TresBien}
 enum Diplome {Brevet,Bac,L1,L2,L3,M1,M2}
 
-public class Etudiant {
+public class Etudiant implements EtuInterface{
 
-    private int id;
+    private Id id;
     private String nom;
     private String prenom;
     private Date dateNaissance;
@@ -22,12 +24,14 @@ public class Etudiant {
     private Date dateDiplome;
     private String villeDiplome;
 
-    public int getId() {
-        return id;
+    public HashSet<Id> getId() {
+        HashSet<Id> ret = new HashSet<Id>();
+        ret.add(id);
+        return ret;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = new Id(id);
     }
 
     public String getNom() {
