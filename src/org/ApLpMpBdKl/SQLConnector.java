@@ -1,11 +1,12 @@
 package org.ApLpMpBdKl;
 
-
+import javax.servlet.annotation.WebServlet;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SQLConnector {
+@WebServlet(name="SqlConnector",loadOnStartup=1)
+public class SQLConnector{
     /* Connexion à la base de données */
     String url = "jdbc:mysql://localhost:3306/";
     String utilisateur = "stupidJavaUser";
@@ -14,7 +15,7 @@ public class SQLConnector {
     static SQLConnector instance = null;
 
     public SQLConnector(){
-
+        this.getInstance().connect();
     }
 
     public static SQLConnector getInstance() {
