@@ -7,38 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c76921ca-bacb-4639-be8d-84c8d8c0371a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/ApLpMpBdKl/Authentification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/ApLpMpBdKl/Etudiant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/Book.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/BookDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/BookDAOImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/BookDAOMockImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/BookService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/BookServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/DBManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/HelloWorldServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/org/tutorial/MainServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/ApLpMpBdKl/Authentification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/ApLpMpBdKl/Etudiant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/Book.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/BookDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/BookDAOImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/BookDAOMockImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/BookService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/BookServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/DBManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/HelloWorldServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/tutorial/MainServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/lib/mysql-connector-java-5.1.12-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Enssat2_ear_exploded/META-INF/application.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/ApLpMpBdKl/Authentification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Inscription.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ApLpMpBdKl/Connexion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/ApLpMpBdKl/Inscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/org/ApLpMpBdKl/Authentification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/classes/org/ApLpMpBdKl/Authentification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Enssat2/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ApLpMpBdKl/Authentification.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -51,28 +29,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/hello.jsp">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="289">
+              <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tutorial/HelloWorldServlet.java">
+        <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Inscription.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tutorial/MainServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="374">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,29 +50,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/accueil.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Authentification.java">
+        <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Connexion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="260">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#246#247#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Inscription.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="21" column="23" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="23" />
+            <state relative-caret-position="161">
+              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -113,8 +84,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -131,7 +102,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/org/ApLpMpBdKl/Authentification.java" />
+        <option value="$PROJECT_DIR$/src/org/ApLpMpBdKl/Inscription.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/Inscription.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/org/ApLpMpBdKl/Connexion.java" />
       </list>
     </option>
   </component>
@@ -155,6 +130,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,18 +189,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553509198628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554131644610" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../apache-tomee-plus-8.0.0-M2/lib/servlet-api.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RunDashboard">
@@ -324,18 +300,27 @@
       <option name="presentableId" value="Default" />
       <updated>1553247751957</updated>
       <workItem from="1553247755373" duration="4587000" />
-      <workItem from="1553507969764" duration="1222000" />
+      <workItem from="1553507969764" duration="1458000" />
+      <workItem from="1554128168575" duration="2883000" />
     </task>
+    <task id="LOCAL-00001" summary="Ajout d'une classe Authentification pour sécuriser les accès à la BDD utilisateurs">
+      <created>1553509312560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553509312560</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3953000" />
+    <option name="totallyTimeSpent" value="7072000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19742814" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20045386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -373,6 +358,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajout d'une classe Authentification pour sécuriser les accès à la BDD utilisateurs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout d'une classe Authentification pour sécuriser les accès à la BDD utilisateurs" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/org/tutorial/Book.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -388,16 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tutorial/MainServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Authentification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -410,15 +389,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/hello.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="289">
+          <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Connexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/accueil.jsp">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tutorial/MainServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tutorial/HelloWorldServlet.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -427,10 +433,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Connexion.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/hello.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/ApLpMpBdKl/Inscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Inscription.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
         </state>
       </provider>
     </entry>
