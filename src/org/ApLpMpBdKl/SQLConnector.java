@@ -1,32 +1,32 @@
 package org.ApLpMpBdKl;
 
-import javax.servlet.annotation.WebServlet;
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import com.mysql.jdbc.Driver;
 
-@WebServlet(name="SqlConnector",loadOnStartup=1)
+
+
+@Singleton
+@Startup
 public class SQLConnector{
     /* Connexion à la base de données */
-    String url = "jdbc:mysql://localhost:3306/";
-    String utilisateur = "stupidJavaUser";
-    String motDePasse = "jcpjvpiz782098481";
+    private final String url = "jdbc:mysql://localhost:3306/?characterEncoding=latin1";
+    private final String utilisateur = "stupidJavaUser";
+    private final String motDePasse = "kfpafpez7882kpfez";
     Connection connexion = null;
-    static SQLConnector instance = null;
-
-    public SQLConnector(){
-        this.getInstance().connect();
-    }
-
-    public static SQLConnector getInstance() {
-        if (instance == null) {
-            instance = new SQLConnector();
-        }
-        return instance;
-    }
-
-
+    @PostConstruct
     public void connect() {
+        try{
+            Driver driver = new com.mysql.jdbc.Driver();
+            DriverManager.registerDriver(driver);
+        }
+        catch(java.sql.SQLException exception){
+            System.out.println("Oups");
+        }
         try {
             connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
 
@@ -36,6 +36,7 @@ public class SQLConnector{
 
         } catch (SQLException e) {
             System.out.println("Oups il y a eu un problème de connexion");
+            e.printStackTrace();
             /* Gérer les éventuelles erreurs ici */
         } finally {
             if (connexion != null)
