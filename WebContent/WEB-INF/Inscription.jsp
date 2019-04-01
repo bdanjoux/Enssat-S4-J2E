@@ -15,9 +15,8 @@
 </head>
 <body>
 <form method="post" action="inscription"> <!--début du formulaire, méthode POST-->
-    <fieldset>
+    <fieldset> <!-- grand carré avec tout dedans-->
         <legend>Inscription</legend>
-        <p>Vous pouvez vous inscrire via ce formulaire.</p>
 
         <label for="login">Login <span class="requis">*</span></label>
         <input type="text" id="login" name="login" value="" size="20" maxlength="60" /> <!--fieldtext for login-->

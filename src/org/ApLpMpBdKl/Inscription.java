@@ -18,6 +18,8 @@ public class Inscription extends HttpServlet {
 
     /* méthode POST */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
+        // il va falloir envoyer les réponses du formulaire dans la BDD
+        //redirection vers la page accueil
+        //response.sendRedirect(accueil.jsp); //TODO attente adresse accueil
     }
 }

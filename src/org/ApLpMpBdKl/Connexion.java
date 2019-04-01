@@ -17,6 +17,8 @@ public class Connexion extends HttpServlet{
 
     /* méthode POST */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
+        //récupérer les réponses du formulaire et comparer à la BDD
+        //redirection vers la page accueil
+        //response.sendRedirect(accueil.jsp); //TODO attente adresse accueil
     }
 }
