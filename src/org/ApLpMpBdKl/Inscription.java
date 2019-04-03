@@ -21,20 +21,15 @@ public class Inscription extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         // On crée une chaine de caractère contenant la requête SQL servant à insérer le nouvel utilisateur dans la BDD
         String strInsert = "INSERT INTO users(login,mdp) VALUES ("+request.getParameter("login")+","+request.getParameter("motdepasse")+")";
-<<<<<<< HEAD
         Statement st = null;
         try {
-            st = SQLConnector.getConnexion().createStatement();
+            st = SQLConnector.getConnection().createStatement();
+            
         // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-=======
-        Statement st = SQLConnector.getConnexion().createStatement();
-        // On exécute la requête
-        ResultSet rs = st.executeQuery(strInsert);
->>>>>>> ClassicJavaDev
         //forwarding vers la page accueil (garde les paramètres)
         this.getServletContext().getRequestDispatcher( "/WEB-INF/accueil.jsp" ).forward( request, response ); //TODO attente adresse accueil
     }
