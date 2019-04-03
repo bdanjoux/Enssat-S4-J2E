@@ -8,14 +8,14 @@ import javax.ejb.Startup;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 
 
 @Singleton
 @Startup
 public class SQLConnector{
     /* Connexion à la base de données */
-    private final String url = "jdbc:mysql://localhost:3306/?characterEncoding=latin1";
+    private final String url = "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=latin1";
     private final String utilisateur = "stupidJavaUser";
     private final String motDePasse = "kfpafpez7882kpfez";
     private Connection connexion = null;
@@ -27,8 +27,7 @@ public class SQLConnector{
     @PostConstruct
     public void connect() {
         try{
-            Driver driver = new com.mysql.jdbc.Driver();
-            DriverManager.registerDriver(driver);
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         }
         catch(java.sql.SQLException exception){
             System.out.println("Oups");

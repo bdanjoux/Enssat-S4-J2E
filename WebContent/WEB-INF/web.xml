@@ -3,8 +3,9 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
+
 	<display-name>Enssat2</display-name>
-	<servlet> <!--ajout de la servlet pour l'inscription-->
+	<servlet>
 		<servlet-name>Inscription</servlet-name>
 		<servlet-class>org.ApLpMpBdKl.Inscription</servlet-class>
 	</servlet>
@@ -14,7 +15,7 @@
 		<url-pattern>/inscription</url-pattern>
 	</servlet-mapping>
 
-	<servlet> <!--ajout de la servlet pour l'inscription-->
+	<servlet>
 		<servlet-name>Connexion</servlet-name>
 		<servlet-class>org.ApLpMpBdKl.Connexion</servlet-class>
 	</servlet>
@@ -23,7 +24,6 @@
 		<servlet-name>Connexion</servlet-name>
 		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>
-
 
 	<!--
 	<servlet>
