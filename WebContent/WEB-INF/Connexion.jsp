@@ -28,6 +28,7 @@
 
         <input type="submit" value="Connexion" class="sansLabel" /> <!--bouton connexion-->
         <br />
+        <p>Pas encore inscrit ? Rendez-vous <a href="inscription">ici</a></p>
     </fieldset>
 </form>
 </body>
