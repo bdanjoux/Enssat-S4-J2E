@@ -19,7 +19,11 @@ public class SQLConnector{
     private final String motDePasse = "kfpafpez7882kpfez";
     private Connection connexion = null;
 
+<<<<<<< HEAD
     public static Connection getConnexion(){
+=======
+    public Connection getConnexion(){
+>>>>>>> ClassicJavaDev
         return connexion;
     }
 
