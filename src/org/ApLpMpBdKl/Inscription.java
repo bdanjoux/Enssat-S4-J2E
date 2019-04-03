@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
 
 public class Inscription extends HttpServlet {
     public static final String VUE = "/WEB-INF/Inscription.jsp";
@@ -18,7 +19,16 @@ public class Inscription extends HttpServlet {
 
     /* méthode POST */
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-        // il va falloir envoyer les réponses du formulaire dans la BDD
+        // On crée une chaine de caractère contenant la requête SQL servant à insérer le nouvel utilisateur dans la BDD
+        String strInsert = "INSERT INTO users(login,mdp) VALUES ("+request.getParameter("login")+","+request.getParameter("motdepasse")+")";
+        Statement st = null;
+        try {
+            st = SQLConnector.getConnexion().createStatement();
+        // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         //forwarding vers la page accueil (garde les paramètres)
         this.getServletContext().getRequestDispatcher( "/WEB-INF/accueil.jsp" ).forward( request, response ); //TODO attente adresse accueil
     }

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="servlet-api">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../apache-tomee-plus-8.0.0-M2/lib/servlet-api.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
