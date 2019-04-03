@@ -28,6 +28,9 @@
     </facet>
     <facet type="ejb" name="EJB">
       <configuration>
+        <descriptors>
+          <deploymentDescriptor name="ejb-jar.xml" url="file://$MODULE_DIR$/META-INF/ejb-jar.xml" />
+        </descriptors>
         <ejbRoots>
           <root url="file://$MODULE_DIR$/src" />
         </ejbRoots>
@@ -46,7 +49,7 @@
     <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.web.container" level="application" />
     <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.module.container" level="application" />
     <orderEntry type="library" name="servlet-api" level="project" />
-    <orderEntry type="library" name="Java EE 5-Java EE 5" level="project" />
+    <orderEntry type="library" name="Java EE 5-Java EE 5" level="application" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.15" level="project" />
   </component>
