@@ -16,3 +16,5 @@ lib/
 /protobuf-java-3.6.1.jar
 
 src/mysql-connector-java-8\.0\.15\.jar
+
+src/protobuf-java-3\.6\.1\.jar
