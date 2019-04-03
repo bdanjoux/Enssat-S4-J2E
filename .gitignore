@@ -12,3 +12,7 @@ Enssat2\.iml
 /.project
 
 lib/
+/mysql-connector-java-8.0.15.jar
+/protobuf-java-3.6.1.jar
+
+src/mysql-connector-java-8\.0\.15\.jar
