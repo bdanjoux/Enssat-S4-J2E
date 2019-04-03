@@ -5,6 +5,7 @@ import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.sql.Connection;
+import java.sql.CallableStatement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import com.mysql.jdbc.Driver;
@@ -17,6 +18,11 @@ public class SQLConnector{
     private final String utilisateur = "stupidJavaUser";
     private final String motDePasse = "kfpafpez7882kpfez";
     private Connection connexion = null;
+
+    public Connection getConnexion(){
+        return connexion;
+    }
+
     @PostConstruct
     public void connect() {
         try{
