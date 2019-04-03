@@ -1,5 +1,6 @@
 package org.ApLpMpBdKl;
 
+import java.beans.beancontext.BeanContext;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+
 
 public class Inscription extends HttpServlet {
     public static final String VUE = "/WEB-INF/Inscription.jsp";
@@ -23,8 +25,8 @@ public class Inscription extends HttpServlet {
         String strInsert = "INSERT INTO users(login,mdp) VALUES ("+request.getParameter("login")+","+request.getParameter("motdepasse")+")";
         Statement st = null;
         try {
-            st = SQLConnector.getConnection().createStatement();
-            
+            st = ((SQLConnector) BeanContext.globalHierarchyLock).getConnection().createStatement();
+
         // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);
         } catch (SQLException e) {

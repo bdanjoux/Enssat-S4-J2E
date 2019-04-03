@@ -4,11 +4,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
 import java.sql.Connection;
-import java.sql.CallableStatement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import com.mysql.jdbc.Driver;
+
 
 @Singleton
 @Startup
@@ -22,7 +23,6 @@ public class SQLConnector{
     public Connection getConnection(){
         return this.connexion;
     }
-
 
     @PostConstruct
     public void connect() {
