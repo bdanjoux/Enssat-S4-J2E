@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 @WebServlet( name="Connexion", urlPatterns = "/connexion" )
 public class Connexion extends HttpServlet{
@@ -14,7 +16,7 @@ public class Connexion extends HttpServlet{
     /* méthode GET qui appelle la page connexion.jsp */
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Affichage de la page de connexion */
-        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+        this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
     }
 
     /* méthode POST */
