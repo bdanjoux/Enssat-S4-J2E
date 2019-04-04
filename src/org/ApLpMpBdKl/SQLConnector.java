@@ -18,14 +18,16 @@ public class SQLConnector{
     private final String url = "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=latin1";
     private final String utilisateur = "stupidJavaUser";
     private final String motDePasse = "kfpafpez7882kpfez";
-    private Connection connexion = null;
+    private static Connection connexion = null;
 
-    public Connection getConnection(){
-        return this.connexion;
+
+    public static Connection getConnexion(){
+        return connexion;
     }
 
     @PostConstruct
-    public void connect() {
+    public Connection connect() {
+        Connection ret=null;
         try{
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         }
@@ -33,7 +35,7 @@ public class SQLConnector{
             System.out.println("Oups");
         }
         try {
-            connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+            ret = DriverManager.getConnection(url, utilisateur, motDePasse);
 
 
             /* Ici, nous placerons nos requêtes vers la BDD */
@@ -47,6 +49,7 @@ public class SQLConnector{
             if (connexion != null)
                 System.out.println("Connexion Ouverte");
         }
+        return ret;
     }
 
     @PreDestroy
