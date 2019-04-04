@@ -1,5 +1,10 @@
 package org.ApLpMpBdKl;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -13,9 +18,18 @@ enum SerieBac {S,L,ES}
 enum MentionBac {AssezBien,Bien,TresBien}
 enum Diplome {Brevet,Bac,L1,L2,L3,M1,M2}
 
-public class Etudiant implements EtuInterface{
+public class Etudiant extends HttpServlet implements EtuInterface{
+    public static final String VUE = "/WEB-INF/Etudiant.jsp";
 
-
+    /* méthode GET qui appelle la page connexion.jsp */
+    public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+        /* Affichage de la page de connexion */
+        //System.out.println("avant de récupérer le jsp");
+        Id id = new Id(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("student", new Etudiant(id.id));
+        this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
+        //System.out.println("jsp récupéré");
+    }
     private Id id=null;
     private String nom=null;
     private String prenom=null;
@@ -31,13 +45,11 @@ public class Etudiant implements EtuInterface{
 
     public Etudiant(int id){
         this.setId(id);
-        String strInsert = "SELECT * FROM table_name WHERE id='"+id+"'";
     }
-
-
 
     public Etudiant(){
         String strInsert = "INSERT INTO table_name (nom,prenom,dateNaissance) VALUES ('nom','prenom','2000/01/01')";
+        String strSelectTable = "SELECT TABLE 'Tables'";
 
         Statement st = null;
         try {
@@ -46,7 +58,8 @@ public class Etudiant implements EtuInterface{
                 System.out.println("Erreur de connexion BDD");
             }
             // On exécute la requête
-            ResultSet rs = st.executeQuery(strInsert);
+            st.executeQuery(strSelectTable);
+            st.executeUpdate(strInsert);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,8 +71,9 @@ public class Etudiant implements EtuInterface{
                 System.out.println("Erreur de connexion BDD");
             }
             // On exécute la requête
+            st.executeQuery(strSelectTable);
             ResultSet rs = st.executeQuery(strInsert);
-            this.setId(rs.getInt(1));
+            this.setId(rs.getInt(0));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -72,6 +86,8 @@ public class Etudiant implements EtuInterface{
 
 
     private String getStringFromId(String strName){
+        System.out.println("getStringFromId was called");
+        String strSelectTable = "SELECT TABLE 'Tables'";
         String strInsert = "SELECT "+strName+" FROM table_name WHERE id='"+this.id+"'";
         String retString="null";
         try {
@@ -80,8 +96,9 @@ public class Etudiant implements EtuInterface{
                 System.out.println("Erreur de connexion BDD");
             }
             // On exécute la requête
+            st.executeQuery(strSelectTable);
             ResultSet rs = st.executeQuery(strInsert);
-            retString=rs.getString(1);
+            retString=rs.getString(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,6 +107,7 @@ public class Etudiant implements EtuInterface{
 
     private int getIntFromId(String intName){
         String strInsert = "SELECT "+intName+" FROM table_name WHERE id='"+this.id+"'";
+        String strSelectTable = "SELECT TABLE 'Tables'";
         int retInt=0;
         try {
             Statement st = DBManager.getConnection().createStatement();
@@ -97,8 +115,9 @@ public class Etudiant implements EtuInterface{
                 System.out.println("Erreur de connexion BDD");
             }
             // On exécute la requête
+            st.executeQuery(strSelectTable);
             ResultSet rs = st.executeQuery(strInsert);
-            retInt=rs.getInt(1);
+            retInt=rs.getInt(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -107,6 +126,7 @@ public class Etudiant implements EtuInterface{
 
     private Date getDateFromId(String dateName){
         String strInsert = "SELECT "+dateName+" FROM table_name WHERE id='"+this.id+"'";
+        String strSelectTable = "SELECT TABLE 'Tables'";
         Date retDate=null;
         try {
             Statement st = DBManager.getConnection().createStatement();
@@ -114,6 +134,7 @@ public class Etudiant implements EtuInterface{
                 System.out.println("Erreur de connexion BDD");
             }
             // On exécute la requête
+            st.executeQuery(strSelectTable);
             ResultSet rs = st.executeQuery(strInsert);
             retDate=rs.getDate(1);
         } catch (SQLException e) {
