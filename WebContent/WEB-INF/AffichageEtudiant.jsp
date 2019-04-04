@@ -20,11 +20,11 @@ Etudiant e = request.getAttribute("etudiant");
 <h1>Bienvenue <%=prenom%></h1>
 <p>
     ID : <%=e.id%>
-    Nom : <%=e.nom%>, Prénom : <%=e.prenom%>
-    Date de Naissance : <%=e.dateNaissance%>
-    Courriel Professionnel : <%=e.courrielPro%>, Courriel Personnel : <%=e.courrielPerso%>
-    Série pour le BAC : <%=e.serieBac%>, Date d'obtention du diplôme : <%=e.dateBac%>, Mention : <%=e.mention%>
-    Diplôme : <%=e.diplome%>, Date d'obtention du diplôme : <%=e.dateDiplome%>, Ville d'obtention du diplôme : <%=e.villeDiplome%>
+    Nom : <%=e.getNom()%>, Prénom : <%=e.getPrenom()%>
+    Date de Naissance : <%=e.getDateNaissance()%>
+    Courriel Professionnel : <%=e.getCourrielPro()%>, Courriel Personnel : <%=e.getCourrielPerso()%>
+    Série pour le BAC : <%=e.getSerieBac()%>, Date d'obtention du diplôme : <%=e.getDateBac()%>, Mention : <%=e.getMention()%>
+    Diplôme : <%=e.getDiplome()%>, Date d'obtention du diplôme : <%=e.getDateDiplome()%>, Ville d'obtention du diplôme : <%=e.getVilleDiplome()%>
 </p>
 </body>
 </html>
