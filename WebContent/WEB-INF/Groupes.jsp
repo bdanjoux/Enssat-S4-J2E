@@ -11,6 +11,11 @@
     <title>Gestion des groupes</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <!-- Fonctions de rafraichissement des données
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 <META HTTP-EQUIV="Refresh" CONTENT="15"> -->

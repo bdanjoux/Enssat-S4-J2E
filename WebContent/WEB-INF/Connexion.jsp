@@ -14,6 +14,12 @@
     <title>Connexion</title>
 </head>
 <body>
+
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <form method="post" action="connexion">
     <fieldset>
         <legend>Connexion</legend>

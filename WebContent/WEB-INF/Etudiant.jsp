@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <%  Etudiant std = (Etudiant) request.getAttribute("student");
 %>
 <table border ="1" width="1200" align="center">

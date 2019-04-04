@@ -11,6 +11,11 @@
     <title>Mot de passe oublié ?</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <form method="post" action="mdpOublie"> <!--début du formulaire, méthode POST-->
     <fieldset> <!-- grand carré avec tout dedans-->
         <legend>Mot de passe oublié ?</legend>

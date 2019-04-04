@@ -11,6 +11,11 @@
     <title>Gestion des utilisateurs</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <form method="post" action="ChangeUser">
 
     <input type="submit" value="OK" class="sansLabel" /> <!--bouton envoyer-->

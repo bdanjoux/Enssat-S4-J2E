@@ -11,6 +11,12 @@
     <title>Accueil</title>
 </head>
 <body>
+
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <!-- methode Obi wan -->
 <p>
 <form method="post" action="accueil">

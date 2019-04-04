@@ -13,6 +13,11 @@
     <title>Inscription</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 <form method="post" action="inscription"> <!--début du formulaire, méthode POST-->
     <fieldset> <!-- grand carré avec tout dedans-->
         <legend>Inscription</legend>

@@ -12,6 +12,11 @@
     <title>Liste des étudiants</title>
 </head>
 <body>
+<p>
+    <a href="/Enssat/etudiants">Liste des étudiants</a>
+    <a href="/Enssat/groupes">Liste des groupes</a>
+</p>
+
 
 <h1>Liste des étudiants</h1>
 <%
