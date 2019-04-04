@@ -53,7 +53,7 @@ public class Etudiant extends HttpServlet implements EtuInterface{
     }
 
     public Etudiant(String id, String nom, String prenom, Date dateNaissance, String courrielPro, String courrielPerso, String SerieBac, Date dateBac, String mentionBac, String diplome, Date dateDiplome, String villeDiplome){
-        this.setId(new Id(Integer.parseInt(id));
+        this.setId(Integer.parseInt(id));
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setDateNaissance(dateNaissance);
