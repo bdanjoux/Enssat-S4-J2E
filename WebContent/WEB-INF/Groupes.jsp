@@ -11,9 +11,9 @@
     <title>Gestion des groupes</title>
 </head>
 <body>
-<!-- Fonctions de rafraichissement des données -->
+<!-- Fonctions de rafraichissement des données
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
-<META HTTP-EQUIV="Refresh" CONTENT="15">
+<META HTTP-EQUIV="Refresh" CONTENT="15"> -->
 
 </body>
 </html>
