@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import com.mysql.cj.jdbc.Driver;
 
 public class DBManager {
 
@@ -42,6 +43,7 @@ public class DBManager {
 
 		Connection connection = null;
 		try {
+			DriverManager.registerDriver(new Driver());
 			connection = DriverManager.getConnection(url, utilisateur, motDePasse);
 
 		} catch (SQLException sqle) {
