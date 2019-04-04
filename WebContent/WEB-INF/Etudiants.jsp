@@ -34,12 +34,15 @@
 <% while(it.hasNext()){
 Etudiant std=it.next();%>
         <tr>
-            <%if(std.getId().iterator().hasNext()){
-                %><td><%=std.getId().iterator().next().id%></td>
-            <%}else{%>
+            <%int id=1;
+            if(std.getId().iterator().hasNext()){
+                id = std.getId().iterator().next().id;
+            %><td><%=id%></td>
+            <%}else{id=1;%>
             <td>null</td>
             <%}%>
-            <td><%=std.getNom()%></td>
+            <td><a href="etudiant?id=<%=id%>">
+                <%=std.getNom()%></a></td>
             <td><%=std.getPrenom()%></td>
             <td><%=std.getDateNaissance()%></td>
             <td><%=std.getCourrielPro()%></td>
