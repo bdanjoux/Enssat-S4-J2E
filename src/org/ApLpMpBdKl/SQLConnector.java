@@ -18,16 +18,15 @@ public class SQLConnector{
     private final String url = "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=latin1";
     private final String utilisateur = "stupidJavaUser";
     private final String motDePasse = "kfpafpez7882kpfez";
-    private static Connection connexion = null;
+    private Connection connection = null;
 
 
-    public static Connection getConnexion(){
-        return connexion;
+    public Connection getConnection(){
+        return connection;
     }
 
     @PostConstruct
-    public Connection connect() {
-        Connection ret=null;
+    public void connect() {
         try{
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         }
@@ -35,7 +34,7 @@ public class SQLConnector{
             System.out.println("Oups");
         }
         try {
-            ret = DriverManager.getConnection(url, utilisateur, motDePasse);
+            connection = DriverManager.getConnection(url, utilisateur, motDePasse);
 
 
             /* Ici, nous placerons nos requêtes vers la BDD */
@@ -46,24 +45,22 @@ public class SQLConnector{
             e.printStackTrace();
             /* Gérer les éventuelles erreurs ici */
         } finally {
-            if (connexion != null)
+            if (connection != null)
                 System.out.println("Connexion Ouverte");
         }
-        return ret;
     }
 
     @PreDestroy
     public void deconnexion(){
-        if(connexion!=null){
+        if(connection!=null){
             System.out.println("Fermeture de la connexion");
             try {
                 /* Fermeture de la connexion */
-                connexion.close();
+                connection.close();
             } catch (SQLException ignore) {
                 /* Si une erreur survient lors de la fermeture, il suffit de l'ignorer. */
             }
             System.out.println("Connexion fermée");
         }
     }
-
 }
