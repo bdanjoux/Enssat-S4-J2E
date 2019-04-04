@@ -11,7 +11,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Inscription</title>
-   <!-- <link type="text/css" rel="stylesheet" href="form.css" /> -->
 </head>
 <body>
 <form method="post" action="inscription"> <!--début du formulaire, méthode POST-->

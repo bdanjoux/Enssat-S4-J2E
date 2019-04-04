@@ -29,12 +29,18 @@ public class Connexion extends HttpServlet{
         Statement st = null;
         try {
             st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
             // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);
+            if (rs.next()==false) { //TODO modify condition
+                //forward vers la page accueil si le compte est enregistré
+                this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward(request, response);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //redirection vers la page accueil si le compte est enregistré
-        //response.sendRedirect(accueil.jsp); //TODO attente adresse accueil
+
     }
 }
