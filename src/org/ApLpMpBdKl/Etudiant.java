@@ -402,7 +402,7 @@ public class Etudiant extends HttpServlet implements EtuInterface{
     public String getVilleDiplome() {
         if(this.villeDiplome==null && this.id!=null) {
             System.out.println("had to pull individual data from the database");
-            this.setVilleDiplome(this.getStringFromId("villeDipome"));
+            this.setVilleDiplome(this.getStringFromId("villeDiplome"));
         }
         return villeDiplome;
     }

@@ -1,4 +1,6 @@
-<%@ page import="org.ApLpMpBdKl.Etudiant" %><%--
+<%@ page import="org.ApLpMpBdKl.Etudiant" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: Benjamin
   Date: 04/04/2019
@@ -11,9 +13,9 @@
     <title>Title</title>
 </head>
 <body>
-<%  Etudiant std = (Etudiant) request.getAttribute("student");
+<%  ArrayList<Etudiant> stds = (ArrayList<Etudiant>) request.getAttribute("students");
+    Iterator<Etudiant> it = stds.iterator();
 %>
-<% for(std:stds){%>
     <table border ="1" width="1200" align="center">
         <tr bgcolor="00FF7F">
             <th><b>Nom</b></th>
@@ -28,6 +30,8 @@
             <th><b>date diplome</b></th>
             <th><b>ville diplome</b></th>
         </tr>
+<% while(it.hasNext()){
+Etudiant std=it.next();%>
         <tr>
             <td><%=std.getNom()%></td>
             <td><%=std.getPrenom()%></td>
@@ -41,9 +45,6 @@
             <td><%=std.getDateDiplome()%></td>
             <td><%=std.getVilleDiplome()%></td>
         </tr>
-        <!-- Fonctions de rafraichissement des données
-        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
-        <META HTTP-EQUIV="Refresh" CONTENT="15"> --
 <%}%>
 </body>
 </html>
