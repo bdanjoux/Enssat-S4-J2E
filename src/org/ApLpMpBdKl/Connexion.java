@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebServlet( name="Connexion", urlPatterns = "/connexion" )
 public class Connexion extends HttpServlet{
     public static final String VUE = "/WEB-INF/Connexion.jsp";
 

@@ -1,8 +1,9 @@
 package org.ApLpMpBdKl;
 
-import java.beans.beancontext.BeanContext;
+import java.beans.beancontext.*;
 import java.io.IOException;
 
+import javax.naming.Context;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 
-//@WebServlet( name="Inscription", urlPatterns = "/inscription" )
 public class Inscription extends HttpServlet {
     public static final String VUE = "/WEB-INF/Inscription.jsp";
 
