@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-//@WebServlet( name="Connexion", urlPatterns = "/connexion" )
 public class Connexion extends HttpServlet{
     public static final String VUE = "/WEB-INF/Connexion.jsp";
 
