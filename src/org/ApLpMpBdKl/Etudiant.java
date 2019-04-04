@@ -105,6 +105,24 @@ public class Etudiant implements EtuInterface{
         return retInt;
     }
 
+    private Date getDateFromId(String dateName){
+        String strInsert = "SELECT "+dateName+" FROM table_name WHERE id='"+this.id+"'";
+        Date retDate=null;
+        try {
+            Statement st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
+            // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+            retDate=rs.getDate(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return retDate;
+    }
+
+
     public void setId(int id) {
         this.id = new Id(id);
     }
@@ -132,6 +150,9 @@ public class Etudiant implements EtuInterface{
     }
 
     public Date getDateNaissance() {
+        if(this.dateNaissance==null && this.id!=null){
+            this.setDateNaissance(this.getDateFromId("dateNaissance"));
+        }
         return dateNaissance;
     }
 
@@ -155,6 +176,13 @@ public class Etudiant implements EtuInterface{
     }
 
     public URL getCourrielPerso() {
+        if(this.courrielPerso==null && this.id!=null){
+            try {
+                this.setCourrielPerso(new URL(this.getStringFromId("courrielPerso")));
+            }catch (MalformedURLException e){
+                e.printStackTrace();
+            }
+        }
         return courrielPerso;
     }
 
@@ -163,6 +191,14 @@ public class Etudiant implements EtuInterface{
     }
 
     public SerieBac getSerieBac() {
+        if(this.serieBac==null && this.id!=null) {
+            String serie = this.getStringFromId("serieBac");
+            switch (serie){
+                case "S" : this.setSerieBac(SerieBac.S);break;
+                case "L" : this.setSerieBac(SerieBac.L);break;
+                case "ES" : this.setSerieBac(SerieBac.ES);break;
+            }
+        }
         return serieBac;
     }
 
@@ -171,6 +207,9 @@ public class Etudiant implements EtuInterface{
     }
 
     public Date getDateBac() {
+        if(this.dateBac==null && this.id!=null){
+            this.setDateBac(this.getDateFromId("dateBac"));
+        }
         return dateBac;
     }
 
@@ -179,6 +218,14 @@ public class Etudiant implements EtuInterface{
     }
 
     public MentionBac getMentionBac() {
+        if(this.mentionBac==null && this.id!=null) {
+            String mention = this.getStringFromId("mentionBac");
+            switch (mention){
+                case "AssezBien" : this.setMentionBac(MentionBac.AssezBien);break;
+                case "Bien" : this.setMentionBac(MentionBac.Bien);break;
+                case "TresBien" : this.setMentionBac(MentionBac.TresBien);break;
+            }
+        }
         return mentionBac;
     }
 
@@ -187,6 +234,18 @@ public class Etudiant implements EtuInterface{
     }
 
     public Diplome getDiplome() {
+        if(this.diplome==null && this.id!=null) {
+            String diplome = this.getStringFromId("diplome");
+            switch (diplome){
+                case "Bac" : this.setDiplome(Diplome.Bac);break;
+                case "Brevet" : this.setDiplome(Diplome.Brevet);break;
+                case "L1" : this.setDiplome(Diplome.L1);break;
+                case "M1" : this.setDiplome(Diplome.M1);break;
+                case "L2" : this.setDiplome(Diplome.L2);break;
+                case "M2" : this.setDiplome(Diplome.M2);break;
+                case "L3" : this.setDiplome(Diplome.L3);break;
+            }
+        }
         return diplome;
     }
 
@@ -195,6 +254,9 @@ public class Etudiant implements EtuInterface{
     }
 
     public Date getDateDiplome() {
+        if(this.dateDiplome==null && this.id!=null){
+            this.setDateDiplome(this.getDateFromId("dateDiplome"));
+        }
         return dateDiplome;
     }
 
@@ -203,15 +265,13 @@ public class Etudiant implements EtuInterface{
     }
 
     public String getVilleDiplome() {
+        if(this.villeDiplome==null && this.id!=null) {
+            this.setVilleDiplome(this.getStringFromId("villeDipome"));
+        }
         return villeDiplome;
     }
 
     public void setVilleDiplome(String villeDiplome) {
         this.villeDiplome = villeDiplome;
     }
-
-
-
-
-
 }
