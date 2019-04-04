@@ -52,6 +52,47 @@ public class Etudiant extends HttpServlet implements EtuInterface{
         this.pullAllFromDatabase();
     }
 
+    public Etudiant(String id, String nom, String prenom, Date dateNaissance, String courrielPro, String courrielPerso, String SerieBac, Date dateBac, String mentionBac, String diplome, Date dateDiplome, String villeDiplome){
+        this.setId(new Id(Integer.parseInt(id));
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setDateNaissance(dateNaissance);
+        try {
+            this.setCourrielPro(new InternetAddress(courrielPro));
+            this.setCourrielPerso(new InternetAddress(courrielPerso));
+        }catch (AddressException e){
+            e.printStackTrace();
+        }
+        if(SerieBac!=null){
+            switch (SerieBac){
+                case "S" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.S);break;
+                case "L" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.L);break;
+                case "ES" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.ES);break;
+            }
+        }
+        this.setDateBac(dateBac);
+        if(mentionBac!=null){
+            switch (mentionBac){
+                case "AssezBien" : this.setMentionBac(MentionBac.AssezBien);break;
+                case "Bien" : this.setMentionBac(MentionBac.Bien);break;
+                case "TresBien" : this.setMentionBac(MentionBac.TresBien);break;
+            }
+        }
+        if(diplome!=null){
+            switch (diplome){
+                case "Bac" : this.setDiplome(Diplome.Bac);break;
+                case "Brevet" : this.setDiplome(Diplome.Brevet);break;
+                case "L1" : this.setDiplome(Diplome.L1);break;
+                case "M1" : this.setDiplome(Diplome.M1);break;
+                case "L2" : this.setDiplome(Diplome.L2);break;
+                case "M2" : this.setDiplome(Diplome.M2);break;
+                case "L3" : this.setDiplome(Diplome.L3);break;
+            }
+        }
+        this.setDateDiplome(dateDiplome);
+        this.setVilleDiplome(villeDiplome);
+    }
+
     public Etudiant(){
 
     }
