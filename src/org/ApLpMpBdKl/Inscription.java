@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 
-@WebServlet( name="Inscription", urlPatterns = "/inscription" )
+//@WebServlet( name="Inscription", urlPatterns = "/inscription" )
 public class Inscription extends HttpServlet {
-    public static final String VUE = "/WebContent/Inscription.jsp";
+    public static final String VUE = "/WEB-INF/Inscription.jsp";
 
     /* méthode GET qui appelle la page inscription.jsp */
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -28,7 +28,7 @@ public class Inscription extends HttpServlet {
 
         Statement st = null;
         try {
-            st = ((SQLConnector) BeanContext.globalHierarchyLock).getConnexion().createStatement();
+            st = ((SQLConnector) BeanContext.globalHierarchyLock).getConnection().createStatement();
 
         // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);

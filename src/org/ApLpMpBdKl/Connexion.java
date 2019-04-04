@@ -6,17 +6,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-@WebServlet( name="Connexion", urlPatterns = "/connexion" )
+//@WebServlet( name="Connexion", urlPatterns = "/connexion" )
 public class Connexion extends HttpServlet{
-    public static final String VUE = "/WebContent/Connexion.jsp";
+    public static final String VUE = "/WEB-INF/Connexion.jsp";
 
     /* méthode GET qui appelle la page connexion.jsp */
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Affichage de la page de connexion */
+        //System.out.println("avant de récupérer le jsp");
         this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
+        //System.out.println("jsp récupéré");
     }
 
     /* méthode POST */
