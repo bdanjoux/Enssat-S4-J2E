@@ -5,12 +5,16 @@
   Time: 17:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Gestion des utilisateurs</title>
 </head>
 <body>
+<form method="post" action="ChangeUser">
 
+    <input type="submit" value="OK" class="sansLabel" /> <!--bouton envoyer-->
+    <br />
+</form>
 </body>
 </html>

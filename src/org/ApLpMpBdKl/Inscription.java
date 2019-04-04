@@ -27,7 +27,9 @@ public class Inscription extends HttpServlet {
 
         String log = request.getParameter("login");
         String mdp = request.getParameter("motdepasse");
-        String strInsert = "INSERT INTO sys.users(login,mdp) VALUES (' "+log+"','"+mdp+"')";
+        String que = request.getParameter("question");
+        String rep = request.getParameter("reponse");
+        String strInsert = "INSERT INTO sys.users(login,mdp,question,reponse) VALUES (' "+log+"','"+mdp+"','"+que+"','"+rep+"')";
 
         Statement st = null;
         try {
@@ -40,6 +42,6 @@ public class Inscription extends HttpServlet {
         }
 
         //forwarding vers la page accueil (garde les paramètres)
-        //this.getServletContext().getRequestDispatcher( "/WEB-INF/accueil.jsp" ).forward( request, response ); //TODO attente adresse accueil
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward(request, response);
     }
 }

@@ -24,6 +24,13 @@
         <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
         <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" /> <!--fieldtext for password-->
         <br />
+        <label for="question">Question pour récupérer le mot de passe <span class="requis">*</span></label>
+        <input type="text" id="question" name="question" value="" size="20" maxlength="60" /> <!--fieldtext for login-->
+        <br />
+
+        <label for="reponse">Réponse à la question précédente<span class="requis">*</span></label>
+        <input type="password" id="reponse" name="reponse" value="" size="20" maxlength="20" /> <!--fieldtext for password-->
+        <br />
 
         <input type="submit" value="Inscription" class="sansLabel" /> <!--bouton envoyer-->
         <br />

@@ -24,6 +24,25 @@
 		<servlet-name>Connexion</servlet-name>
 		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Accueil</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.Accueil</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Accueil</servlet-name>
+		<url-pattern>/accueil</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ChangeUsers</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.GestionUsers</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ChangeUsers</servlet-name>
+		<url-pattern>/gestionUsers</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>AffichageEtudiant</servlet-name>

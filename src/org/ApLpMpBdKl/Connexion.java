@@ -34,7 +34,13 @@ public class Connexion extends HttpServlet{
             }
             // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);
-            if (rs.next()==false) { //TODO modify condition
+            System.out.println(rs.next());
+            if (rs.next()==false) {
+
+                //forward vers la page accueil si le compte est enregistré
+                System.out.println(" a t on le login ? " +request.getParameter("login"));
+                String log = request.getParameter("login");
+                request.getSession().setAttribute("login",log);
                 //forward vers la page accueil si le compte est enregistré
                 this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward(request, response);
             }

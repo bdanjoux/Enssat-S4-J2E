@@ -29,6 +29,7 @@
         <input type="submit" value="Connexion" class="sansLabel" /> <!--bouton connexion-->
         <br />
         <p>Pas encore inscrit ? Rendez-vous <a href="inscription">ici</a></p>
+        <p>Mot de passe oublié ? Rendez-vous <a href="mdpoublie">ici</a></p>
     </fieldset>
 </form>
 </body>

@@ -15,7 +15,7 @@
 
 <h1>Liste des étudiants</h1>
 <%
-    List<Etudiant> listEtu = request.getAttibute("listEtu");
+    List<Etudiant> listEtu = request.get("listEtu");
 for (Etudiant e:listEtu) {
     int id = e.getId();
     String nom = e.getNom();
