@@ -66,6 +66,26 @@
 
 
 
+	<servlet>
+		<servlet-name>Etudiant</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.Etudiant</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Etudiant</servlet-name>
+		<url-pattern>/etudiant</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Etudiants</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.Etudiants</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Etudiants</servlet-name>
+		<url-pattern>/etudiants</url-pattern>
+	</servlet-mapping>
+
 	<!--
 	<servlet>
 		<display-name>HelloWorld</display-name>
