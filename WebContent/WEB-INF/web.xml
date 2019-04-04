@@ -85,6 +85,16 @@
 		<servlet-name>Etudiants</servlet-name>
 		<url-pattern>/etudiants</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Groupes</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.GroupeEtu</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Groupes</servlet-name>
+		<url-pattern>/groupes</url-pattern>
+	</servlet-mapping>
 
 	<!--
 	<servlet>
