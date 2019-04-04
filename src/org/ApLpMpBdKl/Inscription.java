@@ -28,7 +28,7 @@ public class Inscription extends HttpServlet {
 
         Statement st = null;
         try {
-            st = ((SQLConnector) BeanContext.globalHierarchyLock).getConnection().createStatement();
+            st = ((SQLConnector) BeanContext.globalHierarchyLock).getConnexion().createStatement();
 
         // On exécute la requête
             ResultSet rs = st.executeQuery(strInsert);
