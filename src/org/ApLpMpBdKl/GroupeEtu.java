@@ -1,14 +1,35 @@
 package org.ApLpMpBdKl;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class GroupeEtu implements EtuInterface{
+public class GroupeEtu extends HttpServlet implements EtuInterface{
+    public static final String VUE = "/WEB-INF/Groupe.jsp";
 
-    private String nomGroupe;
-    private String nomProprio;
-    private Date dateCrea;
+    public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+        /* Affichage de la page de connexion */
+        //System.out.println("avant de récupérer le jsp");
+        Id id = new Id(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("student", new GroupeEtu(id.id));
+        this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
+        //System.out.println("jsp récupéré");
+    }
+
+    private Id id=null;
+    private String nomGroupe=null;
+    private String nomProprio=null;
+    private Date dateCrea=null;
     HashSet<EtuInterface> listeEtu = new HashSet<EtuInterface>();
 
     //Constructeur
@@ -16,9 +37,41 @@ public class GroupeEtu implements EtuInterface{
 
     }
 
+    public GroupeEtu(int id){
+        this.id=new Id(id);
+        this.pullAllFromDatabase();
+    }
+
     //Getters et Setters
+
+
     public String getNomGroupe() {
         return nomGroupe;
+    }
+
+    public void pullAllFromDatabase(){
+        if(id!=null){
+            String strInsert = "SELECT * FROM etudiants.groupes WHERE IdGroupePere="+this.id.id;
+            try {
+                Statement st = DBManager.getConnection().createStatement();
+                if(st==null){
+                    System.out.println("Erreur de connexion BDD");
+                }
+                // On exécute la requête
+                ResultSet rs = st.executeQuery(strInsert);
+                while (rs.next()){
+                    // if the child is a student
+                    if(rs.getInt(3)!=0){
+                        listeEtu.add(new Etudiant(rs.getInt(3)));
+                    // if the child is a group
+                    }else if(rs.getInt(2)!=0){
+                        listeEtu.add(new GroupeEtu(rs.getInt(2)));
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -30,6 +83,10 @@ public class GroupeEtu implements EtuInterface{
             ret.addAll(it.next().getId());
         }
         return ret;
+    }
+
+    public Id getSelfId() {
+        return id;
     }
 
     public void setNomGroupe(String nomGroupe) {
