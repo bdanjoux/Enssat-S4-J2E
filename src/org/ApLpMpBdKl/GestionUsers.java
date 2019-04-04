@@ -46,5 +46,4 @@ public class GestionUsers extends HttpServlet{
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
     }
-    String priv = (String) "";
 }

@@ -18,6 +18,7 @@
 %>
     <table border ="1" width="1200" align="center">
         <tr bgcolor="00FF7F">
+            <th><b>Id</b></th>
             <th><b>Nom</b></th>
             <th><b>Prenom</b></th>
             <th><b>date de Naissance</b></th>
@@ -33,6 +34,11 @@
 <% while(it.hasNext()){
 Etudiant std=it.next();%>
         <tr>
+            <%if(std.getId().iterator().hasNext()){
+                %><td><%=std.getId().iterator().next().id%></td>
+            <%}else{%>
+            <td>null</td>
+            <%}%>
             <td><%=std.getNom()%></td>
             <td><%=std.getPrenom()%></td>
             <td><%=std.getDateNaissance()%></td>
