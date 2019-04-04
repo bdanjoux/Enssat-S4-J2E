@@ -11,6 +11,7 @@ enum Diplome {Brevet,Bac,L1,L2,L3,M1,M2}
 
 public class Etudiant implements EtuInterface{
 
+
     private Id id;
     private String nom;
     private String prenom;
@@ -32,6 +33,7 @@ public class Etudiant implements EtuInterface{
 
     public void setId(int id) {
         this.id = new Id(id);
+
     }
 
     public String getNom() {
