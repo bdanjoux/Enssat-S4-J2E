@@ -1,6 +1,10 @@
 package org.ApLpMpBdKl;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,31 +16,103 @@ enum Diplome {Brevet,Bac,L1,L2,L3,M1,M2}
 public class Etudiant implements EtuInterface{
 
 
-    private Id id;
-    private String nom;
-    private String prenom;
-    private Date dateNaissance;
-    private URL courrielPro;
-    private URL courrielPerso;
-    private SerieBac serieBac;
-    private Date dateBac;
-    private MentionBac mentionBac;
-    private Diplome diplome;
-    private Date dateDiplome;
-    private String villeDiplome;
+    private Id id=null;
+    private String nom=null;
+    private String prenom=null;
+    private Date dateNaissance=null;
+    private URL courrielPro=null;
+    private URL courrielPerso=null;
+    private SerieBac serieBac=null;
+    private Date dateBac=null;
+    private MentionBac mentionBac=null;
+    private Diplome diplome=null;
+    private Date dateDiplome=null;
+    private String villeDiplome=null;
 
+    public Etudiant(int id){
+        this.setId(id);
+        String strInsert = "SELECT * FROM table_name WHERE id='"+id+"'";
+    }
+
+
+
+    public Etudiant(){
+        String strInsert = "INSERT INTO table_name (nom,prenom,dateNaissance) VALUES ('nom','prenom','2000/01/01')";
+
+        Statement st = null;
+        try {
+            st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
+            // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        strInsert = "SELECT MAX(id) FROM table_name WHERE nom='nom' AND prenom='prenom'";
+
+        try {
+            st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
+            // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+            this.setId(rs.getInt(1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public HashSet<Id> getId() {
         HashSet<Id> ret = new HashSet<Id>();
         ret.add(id);
         return ret;
     }
 
+
+    private String getStringFromId(String strName){
+        String strInsert = "SELECT "+strName+" FROM table_name WHERE id='"+this.id+"'";
+        String retString="null";
+        try {
+            Statement st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
+            // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+            retString=rs.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return retString;
+    }
+
+    private int getIntFromId(String intName){
+        String strInsert = "SELECT "+intName+" FROM table_name WHERE id='"+this.id+"'";
+        int retInt=0;
+        try {
+            Statement st = DBManager.getConnection().createStatement();
+            if(st==null){
+                System.out.println("Erreur de connexion BDD");
+            }
+            // On exécute la requête
+            ResultSet rs = st.executeQuery(strInsert);
+            retInt=rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return retInt;
+    }
+
     public void setId(int id) {
         this.id = new Id(id);
-
     }
 
     public String getNom() {
+        if(this.nom==null && this.id!=null){
+            this.setNom(this.getStringFromId("nom"));
+        }
         return nom;
     }
 
@@ -45,6 +121,9 @@ public class Etudiant implements EtuInterface{
     }
 
     public String getPrenom() {
+        if(this.prenom==null && this.id!=null) {
+            this.setPrenom(this.getStringFromId("prenom"));
+        }
         return prenom;
     }
 
@@ -61,6 +140,13 @@ public class Etudiant implements EtuInterface{
     }
 
     public URL getCourrielPro() {
+        if(this.courrielPro==null && this.id!=null){
+            try {
+                this.setCourrielPro(new URL(this.getStringFromId("courrielPro")));
+            }catch (MalformedURLException e){
+                e.printStackTrace();
+            }
+        }
         return courrielPro;
     }
 
