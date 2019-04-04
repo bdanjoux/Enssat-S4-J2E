@@ -19,7 +19,7 @@ public class Groupes extends HttpServlet{
         //System.out.println("avant de récupérer le jsp");
 
         Statement st = null;
-        String strInsert = "SELECT * FROM groupes.table_name";
+        String strInsert = "SELECT * FROM etudiants.groupes";
         ArrayList<GroupeEtu> grps = new ArrayList<GroupeEtu>();
         try {
             st = DBManager.getConnection().createStatement();
@@ -30,14 +30,14 @@ public class Groupes extends HttpServlet{
 
             ResultSet rs = st.executeQuery(strInsert);
             while(rs.next()){
-                grps.add(new GroupeEtu(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDate(8),rs.getString(9),rs.getString(10),rs.getDate(11),rs.getString(12)));
+                grps.add(new GroupeEtu(rs.getInt(1)));
             }
-            System.out.println("Number of students "+stds.size());
+            System.out.println("Number of Groups "+grps.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("students",stds);
+        request.setAttribute("groupes",grps);
         this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
         //System.out.println("jsp récupéré");
     }
