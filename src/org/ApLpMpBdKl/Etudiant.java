@@ -40,10 +40,10 @@ public class Etudiant extends HttpServlet implements EtuInterface{
     private Date dateNaissance=null;
     private InternetAddress courrielPro=null;
     private InternetAddress  courrielPerso=null;
-    private SerieBac serieBac=null;
+    private String serieBac=null;
     private Date dateBac=null;
-    private MentionBac mentionBac=null;
-    private Diplome diplome=null;
+    private String mentionBac=null;
+    private String diplome=null;
     private Date dateDiplome=null;
     private String villeDiplome=null;
 
@@ -58,38 +58,17 @@ public class Etudiant extends HttpServlet implements EtuInterface{
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setDateNaissance(dateNaissance);
+
         try {
             this.setCourrielPro(new InternetAddress(courrielPro));
             this.setCourrielPerso(new InternetAddress(courrielPerso));
         }catch (AddressException e){
             e.printStackTrace();
         }
-        if(SerieBac!=null){
-            switch (SerieBac){
-                case "S" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.S);break;
-                case "L" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.L);break;
-                case "ES" : this.setSerieBac(org.ApLpMpBdKl.SerieBac.ES);break;
-            }
-        }
+        this.setSerieBac(SerieBac);
         this.setDateBac(dateBac);
-        if(mentionBac!=null){
-            switch (mentionBac){
-                case "AssezBien" : this.setMentionBac(MentionBac.AssezBien);break;
-                case "Bien" : this.setMentionBac(MentionBac.Bien);break;
-                case "TresBien" : this.setMentionBac(MentionBac.TresBien);break;
-            }
-        }
-        if(diplome!=null){
-            switch (diplome){
-                case "Bac" : this.setDiplome(Diplome.Bac);break;
-                case "Brevet" : this.setDiplome(Diplome.Brevet);break;
-                case "L1" : this.setDiplome(Diplome.L1);break;
-                case "M1" : this.setDiplome(Diplome.M1);break;
-                case "L2" : this.setDiplome(Diplome.L2);break;
-                case "M2" : this.setDiplome(Diplome.M2);break;
-                case "L3" : this.setDiplome(Diplome.L3);break;
-            }
-        }
+        this.setMentionBac(mentionBac);
+        this.setDiplome(diplome);
         this.setDateDiplome(dateDiplome);
         this.setVilleDiplome(villeDiplome);
     }
@@ -192,35 +171,11 @@ public class Etudiant extends HttpServlet implements EtuInterface{
                 }catch (AddressException e){
                     e.printStackTrace();
                 }
-                String serie = rs.getString(7);
-                if(serie!=null){
-                    switch (serie){
-                        case "S" : this.setSerieBac(SerieBac.S);break;
-                        case "L" : this.setSerieBac(SerieBac.L);break;
-                        case "ES" : this.setSerieBac(SerieBac.ES);break;
-                    }
-                }
+                this.setSerieBac(rs.getString(7));
+
                 this.setDateBac(rs.getDate(8));
-                String mention = rs.getString(9);
-                if(mention!=null){
-                    switch (mention){
-                        case "AssezBien" : this.setMentionBac(MentionBac.AssezBien);break;
-                        case "Bien" : this.setMentionBac(MentionBac.Bien);break;
-                        case "TresBien" : this.setMentionBac(MentionBac.TresBien);break;
-                    }
-                }
-                String diplome = rs.getString(10);
-                if(diplome!=null){
-                    switch (diplome){
-                        case "Bac" : this.setDiplome(Diplome.Bac);break;
-                        case "Brevet" : this.setDiplome(Diplome.Brevet);break;
-                        case "L1" : this.setDiplome(Diplome.L1);break;
-                        case "M1" : this.setDiplome(Diplome.M1);break;
-                        case "L2" : this.setDiplome(Diplome.L2);break;
-                        case "M2" : this.setDiplome(Diplome.M2);break;
-                        case "L3" : this.setDiplome(Diplome.L3);break;
-                    }
-                }
+                this.setMentionBac(rs.getString(9));
+                this.setDiplome(rs.getString(10));
                 this.setDateDiplome(rs.getDate(11));
                 this.setVilleDiplome(rs.getString(12));
             }
@@ -321,20 +276,11 @@ public class Etudiant extends HttpServlet implements EtuInterface{
         this.courrielPerso = courrielPerso;
     }
 
-    public SerieBac getSerieBac() {
-        if(this.serieBac==null && this.id!=null) {
-            System.out.println("had to pull individual data from the database");
-            String serie = this.getStringFromId("serieBac");
-            switch (serie){
-                case "S" : this.setSerieBac(SerieBac.S);break;
-                case "L" : this.setSerieBac(SerieBac.L);break;
-                case "ES" : this.setSerieBac(SerieBac.ES);break;
-            }
-        }
+    public String getSerieBac() {
         return serieBac;
     }
 
-    public void setSerieBac(SerieBac serieBac) {
+    public void setSerieBac(String serieBac) {
         this.serieBac = serieBac;
     }
 
@@ -350,41 +296,19 @@ public class Etudiant extends HttpServlet implements EtuInterface{
         this.dateBac = dateBac;
     }
 
-    public MentionBac getMentionBac() {
-        if(this.mentionBac==null && this.id!=null) {
-            System.out.println("had to pull individual data from the database");
-            String mention = this.getStringFromId("mentionBac");
-            switch (mention){
-                case "AssezBien" : this.setMentionBac(MentionBac.AssezBien);break;
-                case "Bien" : this.setMentionBac(MentionBac.Bien);break;
-                case "TresBien" : this.setMentionBac(MentionBac.TresBien);break;
-            }
-        }
+    public String getMentionBac() {
         return mentionBac;
     }
 
-    public void setMentionBac(MentionBac mentionBac) {
+    public void setMentionBac(String mentionBac) {
         this.mentionBac = mentionBac;
     }
 
-    public Diplome getDiplome() {
-        if(this.diplome==null && this.id!=null) {
-            System.out.println("had to pull individual data from the database");
-            String diplome = this.getStringFromId("diplome");
-            switch (diplome){
-                case "Bac" : this.setDiplome(Diplome.Bac);break;
-                case "Brevet" : this.setDiplome(Diplome.Brevet);break;
-                case "L1" : this.setDiplome(Diplome.L1);break;
-                case "M1" : this.setDiplome(Diplome.M1);break;
-                case "L2" : this.setDiplome(Diplome.L2);break;
-                case "M2" : this.setDiplome(Diplome.M2);break;
-                case "L3" : this.setDiplome(Diplome.L3);break;
-            }
-        }
+    public String getDiplome() {
         return diplome;
     }
 
-    public void setDiplome(Diplome diplome) {
+    public void setDiplome(String diplome) {
         this.diplome = diplome;
     }
 

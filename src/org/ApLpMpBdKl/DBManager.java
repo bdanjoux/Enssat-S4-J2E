@@ -13,6 +13,7 @@ public class DBManager {
 	private static final String url = "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=latin1";
 	private static final String utilisateur = "stupidJavaUser";
 	private static final String motDePasse = "kfpafpez7882kpfez";
+	private static  Connection connection = null;
 
 	private ResourceBundle properties;
 
@@ -41,13 +42,13 @@ public class DBManager {
 
 	public static Connection getConnection() {
 
-		Connection connection = null;
-		try {
-			DriverManager.registerDriver(new Driver());
-			connection = DriverManager.getConnection(url, utilisateur, motDePasse);
-
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+		if(connection==null) {
+			try {
+				DriverManager.registerDriver(new Driver());
+				connection = DriverManager.getConnection(url, utilisateur, motDePasse);
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			}
 		}
 		return connection;
 
