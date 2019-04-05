@@ -84,6 +84,16 @@
 		<url-pattern>/groupe</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>MdpOublie</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.MdpOublie</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MdpOublie</servlet-name>
+		<url-pattern>/mdpoublie</url-pattern>
+	</servlet-mapping>
+
 	<!--
 	<servlet>
 		<display-name>HelloWorld</display-name>

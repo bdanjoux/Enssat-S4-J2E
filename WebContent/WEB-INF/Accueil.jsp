@@ -42,7 +42,5 @@
     </fieldset>
 </form>
 
-<p><%= (String)request.getAttribute("login") %> </p>
-
 </body>
 </html>
