@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <%  Etudiant std = (Etudiant) request.getAttribute("student");
+    %>
+    <title><%=std.getPrenom()%> <%=std.getNom()%></title>
 </head>
 <body>
 <p>
@@ -16,8 +18,6 @@
     <a href="/groupes">Liste des groupes</a>
 </p>
 
-<%  Etudiant std = (Etudiant) request.getAttribute("student");
-%>
 <table border ="1" width="1200" align="center">
     <tr bgcolor="00FF7F">
         <th><b>Nom</b></th>
@@ -48,6 +48,6 @@
 <!-- Fonctions de rafraichissement des données
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 <META HTTP-EQUIV="Refresh" CONTENT="15"> -->
-
+</table>
 </body>
 </html>

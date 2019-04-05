@@ -44,28 +44,6 @@
 		<url-pattern>/gestionUsers</url-pattern>
 	</servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>AffichageEtudiant</servlet-name>
-		<url-pattern>/AffichageEtudiant</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>AffichageEtudiant</servlet-name>
-		<servlet-class>org.ApLpMpBdKl.AffichageEtudiant</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>ListeEtudiant</servlet-name>
-		<servlet-class>org.ApLpMpBdKl.ListeEtudiant</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>ListeEtudiant</servlet-name>
-		<url-pattern>/ListeEtudiant</url-pattern>
-	</servlet-mapping>
-
-
-
 	<servlet>
 		<servlet-name>Etudiant</servlet-name>
 		<servlet-class>org.ApLpMpBdKl.Etudiant</servlet-class>
