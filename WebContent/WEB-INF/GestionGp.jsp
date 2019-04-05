@@ -12,6 +12,8 @@
 </head>
 <body>
 <p>
+    <a href="/accueil">Accueil</a>
+    <a href="/inscription">Inscription</a>
     <a href="/etudiants">Liste des étudiants</a>
     <a href="/groupes">Liste des groupes</a>
 </p>
