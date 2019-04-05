@@ -21,10 +21,21 @@ public class GroupeEtu extends HttpServlet implements EtuInterface{
         //System.out.println("avant de récupérer le jsp");
         GroupeEtu ngru = new GroupeEtu(Integer.parseInt(request.getParameter("id")));
         HashSet<Etudiant> hashEtu= new HashSet<Etudiant>();
+
         HashSet<Id> hashId=(HashSet<Id>) ngru.getId();
         Iterator<Id> itid = hashId.iterator();
+
+        HashSet<Integer>hashid=new HashSet<Integer>();
+
+
         while (itid.hasNext()){
-            hashEtu.add(new Etudiant(itid.next().id));
+            int theid=itid.next().id;
+            hashid.add(theid);
+            System.out.println("the id: "+theid);
+        }
+        Iterator<Integer> itidd = hashid.iterator();
+        while (itidd.hasNext()){
+            hashEtu.add(new Etudiant(itidd.next()));
         }
         request.setAttribute("childs", hashEtu);
         request.setAttribute("SubGroups", ngru.getSubGroups());
