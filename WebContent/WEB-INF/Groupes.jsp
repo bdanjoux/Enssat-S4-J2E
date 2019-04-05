@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Gestion des groupes</title>
+    <title>Liste des groupes</title>
 </head>
 <body>
 <p>

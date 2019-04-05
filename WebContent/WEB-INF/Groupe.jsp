@@ -13,6 +13,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%  HashSet<Etudiant> stds = (HashSet<Etudiant>)request.getAttribute("childs");
+        HashSet<GroupeEtu> grps = (HashSet<GroupeEtu>) request.getAttribute("SubGroups");
+        Iterator<Etudiant> itetu = stds.iterator();
+        Iterator<GroupeEtu> itgru = grps.iterator();
+    %>
     <title>Groupe</title>
 </head>
 <body>
@@ -22,11 +27,6 @@
     <a href="/groupes">Liste des groupes</a>
 </p>
 
-<%  HashSet<Etudiant> stds = (HashSet<Etudiant>)request.getAttribute("childs");
-    HashSet<GroupeEtu> grps = (HashSet<GroupeEtu>) request.getAttribute("SubGroups");
-    Iterator<Etudiant> itetu = stds.iterator();
-    Iterator<GroupeEtu> itgru = grps.iterator();
-%>
 <table border ="1" width="1200" align="center">
     <tr bgcolor="00FF7F">
         <th><b>Id</b></th>
@@ -95,6 +95,7 @@ EtuInterface std=itgru.next();%>
         <%}%>
     </tr
 <%}%>
+</table>
 
 </body>
 </html>
