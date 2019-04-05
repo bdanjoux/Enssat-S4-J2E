@@ -72,11 +72,13 @@ EtuInterface std=itetu.next();%>
 <%}%>
 <% while(itgru.hasNext()){
 EtuInterface std=itgru.next();%>
+    <tr>
     <%if(std instanceof GroupeEtu){%>
         <%int id=1;
                 if(std.getId().iterator().hasNext()){
                     id = std.getId().iterator().next().id;
-            %><td><%=id%></td>
+            %><td><a href="groupe?id=<%=id%>">
+        <%=id%></a></td>
         <%}else{id=1;%>
     <td>null</td>
         <%}%>
