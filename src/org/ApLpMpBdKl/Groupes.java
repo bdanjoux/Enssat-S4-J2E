@@ -19,7 +19,7 @@ public class Groupes extends HttpServlet{
         //System.out.println("avant de récupérer le jsp");
 
         Statement st = null;
-        String strInsert = "SELECT * FROM etudiants.groupes";
+        String strInsert = "SELECT DISTINCT IdGroupePere FROM etudiants.groupes";
         ArrayList<GroupeEtu> grps = new ArrayList<GroupeEtu>();
         try {
             st = DBManager.getConnection().createStatement();
@@ -30,13 +30,14 @@ public class Groupes extends HttpServlet{
 
             ResultSet rs = st.executeQuery(strInsert);
             while(rs.next()){
-                grps.add(new GroupeEtu(rs.getInt(1)));
+                if(rs.getString(1)!=null){
+                    grps.add(new GroupeEtu(rs.getInt(1)));
+                }
             }
             System.out.println("Number of Groups "+grps.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         request.setAttribute("groupes",grps);
         this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
         //System.out.println("jsp récupéré");

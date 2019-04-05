@@ -2,7 +2,8 @@
 <%@ page import="org.ApLpMpBdKl.EtuInterface" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="org.ApLpMpBdKl.Etudiant" %>
-<%@ page import="org.ApLpMpBdKl.GroupeEtu" %><%--
+<%@ page import="org.ApLpMpBdKl.GroupeEtu" %>
+<%@ page import="org.ApLpMpBdKl.Etudiants" %><%--
   Created by IntelliJ IDEA.
   User: benja
   Date: 05/04/2019
@@ -21,8 +22,10 @@
     <a href="/Enssat/groupes">Liste des groupes</a>
 </p>
 
-<%  HashSet<EtuInterface> stds = (HashSet<EtuInterface>) request.getAttribute("childs");
-    Iterator<EtuInterface> it = stds.iterator();
+<%  HashSet<Etudiant> stds = (HashSet<Etudiant>)request.getAttribute("childs");
+    HashSet<GroupeEtu> grps = (HashSet<GroupeEtu>) request.getAttribute("SubGroups");
+    Iterator<Etudiant> itetu = stds.iterator();
+    Iterator<GroupeEtu> itgru = grps.iterator();
 %>
 <table border ="1" width="1200" align="center">
     <tr bgcolor="00FF7F">
@@ -39,12 +42,12 @@
         <th><b>date diplome</b></th>
         <th><b>ville diplome</b></th>
     </tr>
-        <% while(it.hasNext()){
-EtuInterface std=it.next();%>
+<% while(itetu.hasNext()){
+EtuInterface std=itetu.next();%>
     <tr>
         <%if(std instanceof Etudiant){
 
-        }%>
+        %>
             <%int id=1;
                 if(std.getId().iterator().hasNext()){
                     id = std.getId().iterator().next().id;
@@ -64,29 +67,34 @@ EtuInterface std=it.next();%>
             <td><%=((Etudiant)std).getDiplome()%></td>
             <td><%=((Etudiant)std).getDateDiplome()%></td>
             <td><%=((Etudiant)std).getVilleDiplome()%></td>
-        <%}else if(std instanceof GroupeEtu){%>
-            <%int id=1;
+        <%}%>
+    </tr>
+<%}%>
+<% while(itgru.hasNext()){
+EtuInterface std=itgru.next();%>
+    <%if(std instanceof GroupeEtu){%>
+        <%int id=1;
                 if(std.getId().iterator().hasNext()){
                     id = std.getId().iterator().next().id;
             %><td><%=id%></td>
-            <%}else{id=1;%>
-            <td>null</td>
-            <%}%>
-
-            <td><a href="groupe?id=<%=id%>">
-                <%=std.getNom()%></a></td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-            <td>/</td>
-    </tr>
+        <%}else{id=1;%>
+    <td>null</td>
         <%}%>
+
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+        <%}%>
+    </tr
+<%}%>
 
 </body>
 </html>

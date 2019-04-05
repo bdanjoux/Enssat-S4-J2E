@@ -49,6 +49,7 @@ public class Etudiant extends HttpServlet implements EtuInterface{
 
     public Etudiant(int id){
         this.setId(id);
+        System.out.println("Hey i'm a new student with the id: "+id);
         this.pullAllFromDatabase();
     }
 

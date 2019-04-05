@@ -18,7 +18,7 @@
     <a href="/groupes">Liste des groupes</a>
 </p>
 
-<%  ArrayList<GroupeEtu> grps = (ArrayList<GroupeEtu>) request.getAttribute("students");
+<%  ArrayList<GroupeEtu> grps = (ArrayList<GroupeEtu>) request.getAttribute("groupes");
     Iterator<GroupeEtu> it = grps.iterator();
 %>
 
@@ -29,7 +29,8 @@
  <% while(it.hasNext()){
      GroupeEtu grp = it.next();%>
     <tr>
-        <td><%grp.getNomGroupe();%></td>
+        <td><a href="groupe?id=<%=grp.getSelfId().id%>">
+            <%=grp.getSelfId().id%></a></td>
     </tr>
     <% }%>
 <!-- Fonctions de rafraichissement des données

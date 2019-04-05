@@ -18,10 +18,16 @@ public class GroupeEtu extends HttpServlet implements EtuInterface{
     public static final String VUE = "/WEB-INF/Groupe.jsp";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        /* Affichage de la page de connexion */
         //System.out.println("avant de récupérer le jsp");
-        Id id = new Id(Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("student", new GroupeEtu(id.id));
+        GroupeEtu ngru = new GroupeEtu(Integer.parseInt(request.getParameter("id")));
+        HashSet<Etudiant> hashEtu= new HashSet<Etudiant>();
+        HashSet<Id> hashId=(HashSet<Id>) ngru.getId();
+        Iterator<Id> itid = hashId.iterator();
+        while (itid.hasNext()){
+            hashEtu.add(new Etudiant(itid.next().id));
+        }
+        request.setAttribute("childs", hashEtu);
+        request.setAttribute("SubGroups", ngru.getSubGroups());
         this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
         //System.out.println("jsp récupéré");
     }
@@ -39,6 +45,7 @@ public class GroupeEtu extends HttpServlet implements EtuInterface{
 
     public GroupeEtu(int id){
         this.id=new Id(id);
+        System.out.println("Hey i'm a new group with the id: "+id);
         this.pullAllFromDatabase();
     }
 
@@ -60,12 +67,15 @@ public class GroupeEtu extends HttpServlet implements EtuInterface{
                 // On exécute la requête
                 ResultSet rs = st.executeQuery(strInsert);
                 while (rs.next()){
+                    System.out.println("New Line in the group");
                     // if the child is a student
-                    if(rs.getInt(3)!=0){
-                        listeEtu.add(new Etudiant(rs.getInt(3)));
+                    if(rs.getInt(4)!=0){
+                        System.out.println("It's a student");
+                        listeEtu.add(new Etudiant(rs.getInt(4)));
                     // if the child is a group
-                    }else if(rs.getInt(2)!=0){
-                        listeEtu.add(new GroupeEtu(rs.getInt(2)));
+                    }else if(rs.getInt(3)!=0){
+                        System.out.println("It's another group");
+                        listeEtu.add(new GroupeEtu(rs.getInt(3)));
                     }
                 }
             } catch (SQLException e) {
@@ -81,6 +91,19 @@ public class GroupeEtu extends HttpServlet implements EtuInterface{
         Iterator<EtuInterface> it = listeEtu.iterator();
         while (it.hasNext() && i<listeEtu.size()){
             ret.addAll(it.next().getId());
+        }
+        return ret;
+    }
+
+    public Set<GroupeEtu> getSubGroups() {
+        HashSet<GroupeEtu> ret = new HashSet<GroupeEtu>();
+        int i=0;
+        Iterator<EtuInterface> it = listeEtu.iterator();
+        while (it.hasNext() && i<listeEtu.size()){
+            EtuInterface et=it.next();
+            if(et instanceof GroupeEtu){
+                ret.add((GroupeEtu)et);
+            }
         }
         return ret;
     }

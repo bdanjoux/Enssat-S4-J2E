@@ -88,12 +88,22 @@
 	
 	<servlet>
 		<servlet-name>Groupes</servlet-name>
-		<servlet-class>org.ApLpMpBdKl.GroupeEtu</servlet-class>
+		<servlet-class>org.ApLpMpBdKl.Groupes</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>Groupes</servlet-name>
 		<url-pattern>/groupes</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Groupe</servlet-name>
+		<servlet-class>org.ApLpMpBdKl.GroupeEtu</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Groupe</servlet-name>
+		<url-pattern>/groupe</url-pattern>
 	</servlet-mapping>
 
 	<!--
