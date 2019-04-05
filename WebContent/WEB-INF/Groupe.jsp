@@ -17,8 +17,8 @@
 <body>
 
 <p>
-    <a href="/Enssat/etudiants">Liste des étudiants</a>
-    <a href="/Enssat/groupes">Liste des groupes</a>
+    <a href="/etudiants">Liste des étudiants</a>
+    <a href="/groupes">Liste des groupes</a>
 </p>
 
 <%  HashSet<EtuInterface> stds = (HashSet<EtuInterface>) request.getAttribute("childs");
